@@ -7,8 +7,7 @@ export class TodoDataService {
 
   todos: Todo[] = [];
 
-  constructor() {
-  }
+  constructor() { }
 
   addTodo(todo: Todo): TodoDataService {
     if (!todo.id) {
@@ -24,7 +23,7 @@ export class TodoDataService {
     return this;
   }
 
-  updateTodoById(id: number, values: Object = {}): Todo {
+  updateTodoById(id: number, values = {}): Todo {
     const todo = this.getTodoById(id);
     if (!todo) {
       return null;
