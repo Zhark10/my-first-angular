@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Todo } from './todo';
 import { TodoDataService } from './todo-data.service';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { TodoDataService } from './todo-data.service';
 })
 export class AppComponent {
 
+  faTrash = faTrash;
   newTodo: Todo = new Todo();
 
   constructor(private todoDataService: TodoDataService) {

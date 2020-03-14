@@ -1,52 +1,53 @@
-
-<div class="page-content page-container" id="page-content">
-  <div class="padding">
-    <div class="row container d-flex justify-content-center">
-      <div class="col-lg-12">
-        <div class="card px-3">
-          <div class="card-body">
-            <h4 class="card-title">Awesome Todo list</h4>
-            <div class="add-items d-flex">
-              <input
-                type="text"
-                class="form-control todo-list-input"
-                placeholder="What needs to be done?"
-                autofocus=""
-                [(ngModel)]="newTodo.title"
-                (keyup.enter)="addTodo()"
-              />
-            </div>
-            <div class="list-wrapper" *ngIf="todos.length > 0">
-              <ul class="d-flex flex-column-reverse todo-list">
-                <li
-                  *ngFor="let todo of todos"
-                  [class.completed]="todo.complete"
-                >
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input
-                        class="checkbox"
-                        type="checkbox"
-                        (click)="toggleTodoComplete(todo)"
-                        [checked]="todo.complete"/>
-                      {{ todo.title }}
-                      <i class="input-helper"></i
-                    ></label>
-                  </div>
-                  <i class="remove mdi mdi-close-circle-outline"></i>
-                  <button class="destroy" (click)="removeTodo(todo)"></button>
-                </li>
-              </ul>
-            </div>
+<div class="padding">
+  <div class="row container d-flex justify-content-center">
+    <div class="col-lg-12">
+      <div class="card px-3">
+        <div class="card-body">
+          <h4 class="card-title">
+            Awesome Todo list:
+            <span class="todo-count"
+              ><strong>{{ todos.length }}</strong>
+              {{ todos.length == 1 ? "item" : "items" }}</span
+            >
+          </h4>
+          <div class="add-items d-flex">
+            <input
+              type="text"
+              class="form-control todo-list-input"
+              placeholder="What needs to be done?"
+              autofocus=""
+              [(ngModel)]="newTodo.title"
+              (keyup.enter)="addTodo()"
+            />
+          </div>
+          <div class="list-wrapper" *ngIf="todos.length > 0">
+            <ul class="d-flex flex-column-reverse todo-list">
+              <li
+                class="item-list"
+                *ngFor="let todo of todos"
+                [class.completed]="todo.complete"
+              >
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input
+                      class="checkbox"
+                      type="checkbox"
+                      (click)="toggleTodoComplete(todo)"
+                      [checked]="todo.complete"/>
+                    {{ todo.title }}
+                    <i class="input-helper"></i
+                  ></label>
+                </div>
+                <fa-icon
+                  class="trash-icon"
+                  [icon]="faTrash"
+                  (click)="removeTodo(todo)"
+                ></fa-icon>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <footer class="footer" *ngIf="todos.length > 0">
-    <span class="todo-count"
-      ><strong>{{ todos.length }}</strong>
-      {{ todos.length == 1 ? "item" : "items" }} left</span
-    >
-  </footer>
 </div>
