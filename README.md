@@ -6,7 +6,7 @@ This project will be created via Angular CLI. It allows me to create angular pro
 
 ### Powered by:
 
-NEXT, JS, REST API
+Angular, JS, angular-ui-bootstrap
 
 ### Build and run
 
